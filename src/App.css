@@ -1,0 +1,524 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@font-face {
+  font-family: cubano;
+  src: url(font/Cubano.ttf);
+}
+@font-face {
+  font-family: sofiapro-light;
+  src: url(font/sofiapro-light.otf);
+}
+
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(26, 24, 24, 1) 0%, rgba(47, 45, 45, 1) 100%);
+  height: 50px;
+  padding: 0 20px;
+  color: rgb(255, 255, 255);
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.logo {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.logo:hover {
+  color: #CCFD44;
+}
+
+.logo::before {
+  content: "";
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background-color: #CCFD44;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.logo:hover::before {
+  transform: scale(1);
+  transition-delay: 0.1s;
+}
+
+
+
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  /* margin: 0 10px; */
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-links li:hover {
+  color: #CCFD44;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .nav-links li {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+ 
+
+  .nav-links li {
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+}
+
+
+.Main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgba(26, 24, 24, 1) 0%, rgba(47, 45, 45, 1) 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -28px;
+  font-family: 'cubano', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.info {
+  z-index: 2;
+  margin-top: 3vw;
+  font-size: 5vw;
+}
+
+.Name {
+  z-index: 2;
+  margin-top: 2vw;
+  font-size: 10vw;
+}
+
+.nameextended {
+  color: #CCFD44;
+  font-size: 17vw;
+}
+
+.skils {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 5vw;
+  margin-top: 0px;
+  color: teal;
+}
+
+.devinfo {
+  height: 55vw;
+  width: 70vw;
+  padding-left: 8vw;
+  margin-top: 5vw;
+  display: block;
+  color: white;
+  position: relative;
+  z-index: 2;
+  transform: translateX(0);
+  transition: transform 0.5s ease-out;
+}
+
+.devpic {
+  margin-top: 5vw;
+  position: relative;
+  z-index: 2;
+  transform: translateX(0);
+  transition: transform 0.5s ease-out;
+}
+
+.devpic img {
+  margin-right: 0px;
+  width: 30vw;
+  max-width: 400px;
+}
+
+.divdiv {
+  margin-top: 3vw;
+  font-weight: bold;
+  font-size: 4vw;
+  transition: opacity 0.5s ease-out;
+}
+
+.typewritter {
+  display: inline-block;
+  color: gray;
+  font-size: 6vw;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.Main-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  z-index: 1;
+}
+
+.Main-container:hover .devinfo {
+  transform: translateX(-5vw);
+}
+
+.Main-container:hover .devpic {
+  transform: translateX(5vw);
+}
+
+.Main-container:hover .typewritter {
+  opacity: 1;
+}
+
+.Main-container:hover .divdiv {
+  opacity: 0.7;
+} 
+
+.Main-container:hover .Name {
+  opacity: 0.7;
+} 
+@media (max-width: 767px) {
+  /* styles for mobile devices */
+  .Main-container{
+    height: 45vh;
+  }
+}
+
+
+
+/* @media (min-width: 768px) and (max-width: 991px) {
+  
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+
+@media (min-width: 1200px) {
+}
+@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 1440px) {
+}
+@media (orientation: landscape) {
+ 
+} */
+
+
+
+
+
+
+
+
+.skils h2{
+ color:  mediumaquamarine;
+}
+
+/* Default styles */
+
+/* Base styles */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1818;
+  height: 100vh;
+}
+
+.about-me {
+  /* margin-top: -79px; */
+  font-size: 3rem;
+  color: #0047cb;
+
+  font-family: 'cubano', sans-serif;
+  /* margin-top: -151px; */
+   
+    
+  /* margin-bottom: 60px; */
+}
+
+.mydic {
+  color: #c9c5c5;
+  margin-left: 22%;
+  margin-right: 22%;
+  /* margin-bottom: -4%; */
+  font-size: 1.5rem;
+  font-family: 'sofiapro-light', sans-serif;
+  text-align: center;
+  height: 45vh;
+}
+
+.deep {
+  color: tomato;
+  font-family: 'cubano', sans-serif;
+  font-weight: bold;
+}
+
+/* Modern features */
+
+.about {
+  background: linear-gradient(90deg, rgba(26, 24, 24, 1) 0%, rgba(47, 45, 45, 1) 100%);
+}
+
+.about-me {
+  text-shadow: 2px 2px #b3b3b3;
+}
+
+.mydic {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  line-height: 2rem;
+}
+
+.deep {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.deep:hover {
+  transform: rotate(360deg);
+  color: #fff;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 768px) {
+  .about-me {
+    font-size: 2rem;
+    margin-top: 10vh;
+  }
+  
+  .mydic {
+    margin: 0 10%;
+  }
+  
+  .about {
+  
+    height: 167vh;
+    margin-bottom: -34vh;
+
+  }
+  
+  .mydic {
+    height: auto;
+    margin: 30px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .about-me {
+    font-size: 1.5rem;
+   
+      
+  }
+  
+  .mydic {
+    margin: 0 5%;
+  }
+  
+  .mydic p {
+    font-size: 1.2rem;
+    
+  }
+  .about {
+    height: 156vh;
+    margin-bottom: -24vh;
+}
+}
+
+@media only screen and (max-width: 320px) {
+  .about-me {
+    font-size: 1.2rem;
+  }
+  
+  .mydic {
+    margin: 0 5%;
+  }
+  
+  .mydic p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 1264px) {
+    .mydic{
+      height: auto
+
+    }
+    .about{
+      height: 155vh;
+    }
+    .about-me {
+      margin-top: -151px;
+   
+    
+      margin-bottom: 60px;
+   
+  }
+  }
+  /* Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Cubano&family=Sofia+Pro:wght@300&display=swap');
+  
+  /* Font Family for the Whole Document */
+  body {
+    font-family: 'Sofia Pro', sans-serif;
+  }
+.footer{
+  background-color: rgb(26, 24, 24) ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* align-content: center; */
+  height: 46vh;
+  
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.w-24 {
+  width: 6rem;
+}
+.h-1 {
+  height: 0.25rem;
+}
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, #718096, #4a5568);
+}
+.from-gray5 {
+  background-color: #e5e5e5;
+}
+.to-gray4 {
+  background-color: #d4d4d4;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.social{
+  background-color: rgb(26, 24, 24);
+  margin-top: 23px;
+  
+}
+.socialIcon{
+  margin-top: 29px;
+}
+.follow{
+  color: white;
+  margin-top: 16px;
+  font-family: 'cubano', sans-serif;  
+}
+.contect-me{
+  color: rgb(201 197 197);
+  font-family: 'sofiapro-light', sans-serif;
+  font-weight: 400; 
+  margin-top: 29px;
+  
+}
+.email{
+  font-weight: bold;
+  
+}
+.socialimg{
+  margin-left: 33px;
+  padding-left: 2px;
+}
+.socialimg li {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.socialimg li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  /* font-family: 'cubano'; */
+
+}
+
+.socialimg li a:hover {
+  background-color: #111;
+}
+
+  
+.copyright{
+  color: white;
+  margin-top: 16px;
+  font-family: 'sofiapro-light', sans-serif;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+
+  .footer{
+    font-size: 0.5rem;
+    height: 38vh;
+  }
+  .socialimg{
+    margin-left: 0;
+    padding-left: 0;
+  }
+ .contect-me{
+  margin-left: 15%;
+ }
+ .my-12 {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+.logo{
+  margin-left: -12px;
+}
+.nav-links li{
+  font-size: 0.7rem;
+  padding: 8px;
+}
+}
+
