@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/webdev/static/css/main.f6440d40.css",
-    "main.js": "/webdev/static/js/main.f4b0493d.js",
-    "static/js/787.bcded1f2.chunk.js": "/webdev/static/js/787.bcded1f2.chunk.js",
-    "static/media/sofiapro-light.otf": "/webdev/static/media/sofiapro-light.7978d11b00722a17ccfa.otf",
-    "static/media/Cubano.ttf": "/webdev/static/media/Cubano.1ea52f1c8a3cb1269081.ttf",
-    "static/media/icon4.svg": "/webdev/static/media/icon4.c276da4e28bdc3c77198db2aaa36c24d.svg",
-    "static/media/icon2.svg": "/webdev/static/media/icon2.d8a807ae2d0483529e0ecd26b7ebb150.svg",
-    "index.html": "/webdev/index.html",
-    "static/media/icon3.svg": "/webdev/static/media/icon3.30b70c85fa0a80f3201a2b3ce44919f3.svg",
-    "static/media/icon1.svg": "/webdev/static/media/icon1.abda25aec861bb7f3fa70db40e589188.svg",
-    "main.f6440d40.css.map": "/webdev/static/css/main.f6440d40.css.map",
-    "main.f4b0493d.js.map": "/webdev/static/js/main.f4b0493d.js.map",
-    "787.bcded1f2.chunk.js.map": "/webdev/static/js/787.bcded1f2.chunk.js.map"
+    "main.css": "/deep/static/css/main.f6440d40.css",
+    "main.js": "/deep/static/js/main.f4b0493d.js",
+    "static/js/787.bcded1f2.chunk.js": "/deep/static/js/787.bcded1f2.chunk.js",
+    "static/media/sofiapro-light.otf": "/deep/static/media/sofiapro-light.7978d11b00722a17ccfa.otf",
+    "static/media/Cubano.ttf": "/deep/static/media/Cubano.1ea52f1c8a3cb1269081.ttf",
+    "static/media/icon4.svg": "/deep/static/media/icon4.c276da4e28bdc3c77198db2aaa36c24d.svg",
+    "static/media/icon2.svg": "/deep/static/media/icon2.d8a807ae2d0483529e0ecd26b7ebb150.svg",
+    "index.html": "/deep/index.html",
+    "static/media/icon3.svg": "/deep/static/media/icon3.30b70c85fa0a80f3201a2b3ce44919f3.svg",
+    "static/media/icon1.svg": "/deep/static/media/icon1.abda25aec861bb7f3fa70db40e589188.svg",
+    "main.f6440d40.css.map": "/deep/static/css/main.f6440d40.css.map",
+    "main.f4b0493d.js.map": "/deep/static/js/main.f4b0493d.js.map",
+    "787.bcded1f2.chunk.js.map": "/deep/static/js/787.bcded1f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f6440d40.css",
