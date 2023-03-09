@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/deep/static/css/main.f6440d40.css",
-    "main.js": "/deep/static/js/main.f4b0493d.js",
+    "main.css": "/deep/static/css/main.8e217f0c.css",
+    "main.js": "/deep/static/js/main.0f6c5bba.js",
     "static/js/787.bcded1f2.chunk.js": "/deep/static/js/787.bcded1f2.chunk.js",
     "static/media/sofiapro-light.otf": "/deep/static/media/sofiapro-light.7978d11b00722a17ccfa.otf",
     "static/media/Cubano.ttf": "/deep/static/media/Cubano.1ea52f1c8a3cb1269081.ttf",
@@ -10,12 +10,12 @@
     "index.html": "/deep/index.html",
     "static/media/icon3.svg": "/deep/static/media/icon3.30b70c85fa0a80f3201a2b3ce44919f3.svg",
     "static/media/icon1.svg": "/deep/static/media/icon1.abda25aec861bb7f3fa70db40e589188.svg",
-    "main.f6440d40.css.map": "/deep/static/css/main.f6440d40.css.map",
-    "main.f4b0493d.js.map": "/deep/static/js/main.f4b0493d.js.map",
+    "main.8e217f0c.css.map": "/deep/static/css/main.8e217f0c.css.map",
+    "main.0f6c5bba.js.map": "/deep/static/js/main.0f6c5bba.js.map",
     "787.bcded1f2.chunk.js.map": "/deep/static/js/787.bcded1f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6440d40.css",
-    "static/js/main.f4b0493d.js"
+    "static/css/main.8e217f0c.css",
+    "static/js/main.0f6c5bba.js"
   ]
 }
