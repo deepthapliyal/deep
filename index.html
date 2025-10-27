@@ -1,1 +1,313 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/deep/logo.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/deep/logo.png"/><link rel="manifest" href="/deep/manifest.json"/><title>deep website</title><script defer="defer" src="/deep/static/js/main.198d7f88.js"></script><link href="/deep/static/css/main.abaf8558.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    /* ======= RESET ======= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ======= NAVBAR ======= */
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0077ff;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav ul li a:hover {
+      color: #0077ff;
+    }
+
+    /* ======= HERO ======= */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      background: linear-gradient(135deg, #0077ff, #00c6ff);
+      color: #fff;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    .hero button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      background-color: #fff;
+      color: #0077ff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #0077ff;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    /* ======= SECTIONS ======= */
+    section {
+      padding: 5rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #0077ff;
+    }
+
+    /* ======= ABOUT ======= */
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .about img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    /* ======= SKILLS ======= */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .skill-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* ======= PROJECTS ======= */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card .content {
+      padding: 1rem;
+    }
+
+    .project-card h3 {
+      color: #0077ff;
+    }
+
+    /* ======= CONTACT ======= */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background-color: #0077ff;
+      color: #fff;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: #005fd1;
+    }
+
+    /* ======= FOOTER ======= */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #0077ff;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MyPortfolio</div>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <h1>Hi, I'm Jane Doe</h1>
+    <p>A passionate web developer creating modern and responsive web applications.</p>
+    <button onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <img src="https://via.placeholder.com/150" alt="Profile Picture">
+    <p>I am a web developer with a love for clean code, creative design, and user-friendly experiences.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-card">HTML</div>
+      <div class="skill-card">CSS</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">React</div>
+      <div class="skill-card">Node.js</div>
+      <div class="skill-card">Python</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Project 1">
+        <div class="content">
+          <h3>Project One</h3>
+          <p>A web application for task management with a sleek and responsive design.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/400x200" alt="Project 2">
+        <div class="content">
+          <h3>Project Two</h3>
+          <p>An e-commerce website built using React and Node.js with payment integration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Jane Doe | All Rights Reserved
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+          </html>
