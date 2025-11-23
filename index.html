@@ -1,40 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <style>
-    /* ======= RESET ======= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak Thapliyal | Science and Technology</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Marked.js for Markdown to HTML conversion -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    
+    <!-- Configure Tailwind for custom colors and Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            --primary: #10b981; /* Emerald 500 */
+            --secondary: #3b82f6; /* Blue 500 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Grey/Blue */
+            color: #f3f4f6; /* Light Grey */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50%;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 9999px;
+        }
+        /* Custom styling for the content area to handle transitions */
+        #content-area {
+            min-height: calc(100vh - 200px); /* Ensures a minimum height */
+            transition: opacity 0.3s ease-in-out;
+        }
+        /* Apply Tailwind Typography (prose) styling for injected markdown content */
+        .prose {
+            max-width: none; /* Override default max-width */
+            color: #d1d5db; /* Default text color for prose */
+        }
+        .prose h2, .prose h3 {
+            color: #ffffff; /* Headings white */
+            border-bottom: 1px solid #374151;
+            padding-bottom: 0.5rem;
+            margin-top: 1.5em;
+        }
+        .prose pre {
+            background-color: #1f2937 !important;
+            border: 1px solid #374151;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+        .prose code {
+            color: #4ade80 !important; /* Green for inline code */
+            background-color: #1f2937;
+            padding: 0.2em 0.4em;
+            border-radius: 0.3em;
+        }
+        .prose li {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen">
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #333;
-      background-color: #f9f9f9;
-      scroll-behavior: smooth;
-    }
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#home" id="nav-home" class="flex-shrink-0 text-2xl font-extrabold tracking-tight text-emerald-400 hover:text-emerald-300 transition duration-300">
+                        Deep<span class="text-blue-400">.Tech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" id="link-home" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                        <a href="#about" id="link-about" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                        <a href="#projects" id="link-projects" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
+                        <a href="#blog" id="link-blog" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Blog</a>
+                        <a href="#contact" id="link-contact" class="nav-link text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#projects" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#blog" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="#contact" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
 
-    /* ======= NAVBAR ======= */
-    header {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      background: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-    }
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- The content of the selected page will be injected here -->
+        <div id="content-area">
+            <div class="text-center text-xl p-20 text-gray-400">Loading...</div>
+        </div>
+    </main>
 
-    nav {
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- Social Links -->
+                <a href="https://in.linkedin.com/in/deepak-thapliyal" target="_blank" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-.9-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.553-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/deepthapliyal" target="_blank" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.417 2.865 8.17 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.85-.013-1.67-.005-1.815-.589-2.203-.589-2.203C7.387 17.07 6.447 16.8 6.447 16.8c-.8-.546.062-.534.062-.534.887.062 1.35 1.015 1.35 1.015.787 1.35 2.067.962 2.576.736.08-.574.307-.962.558-1.185-1.956-.222-3.987-.978-3.987-4.342 0-.96.342-1.744.903-2.361-.09-.22-.39-1.115.086-2.327 0 0 .736-.236 2.42.903.698-.194 1.44-.29 2.18-.29.742 0 1.482.096 2.18.29 1.684-1.14 2.42-.903 2.42-.903.477 1.212.176 2.107.086 2.327.561.617.903 1.4.903 2.36 0 3.364-2.033 4.12-3.99 4.34.314.266.591.794.591 1.603 0 1.157-.01 2.09-.01 2.378 0 .269.182.578.687.485C21.14 20.187 24 16.434 24 12.017 24 6.484 19.523 2 14 2h-2z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="mailto: deepakthapliyal47@gmail.com" class="text-gray-400 hover:text-emerald-400 transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+            </div>
+            <p class="text-sm text-gray-500">&copy; <span id="current-year"></span> Deepak Thapliyal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Messages (e.g., Contact Form Success) -->
+    <div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center p-4 z-50 transition-opacity duration-300">
+        <div class="bg-gray-800 p-8 rounded-xl shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95">
+            <h3 id="modal-title" class="text-xl font-bold mb-4 text-emerald-400">Success!</h3>
+            <p id="modal-body" class="text-gray-300 mb-6">Your message was sent successfully.</p>
+            <button onclick="closeMessageModal()" class="w-full py-2 px-4 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // --- DATA LAYER (Simulated Blog Posts using MARKDOWN) ---
+        const blogPosts = [
+            // Post 1: React Hooks
+            {
+                id: 1,
+                title: "Mastering React Hooks: Custom Hooks for Reusability",
+                date: "October 25, 2025",
+                author: "Deepak Sharma",
+                tags: ["React", "JavaScript", "Frontend"],
+                excerpt: "Custom hooks are essential for abstracting component logic and promoting reusability across your React application. This article covers how to build and structure your first custom hook.",
+                content: `
+Welcome to the world of custom React hooks! If you've been working with React for a while, you know that keeping components clean and focused on rendering is key to maintainable code. Custom hooks allow us to extract stateful logic that can be shared easily across components without introducing the complexity of higher-order components or render props.
+
+## Why Use Custom Hooks?
+
+* **Reusability:** Share non-visual logic between multiple components.
+* **Simplicity:** Keep complex logic out of your functional components.
+* **Readability:** Components become cleaner and easier to understand.
+
+## Building a Basic Hook: useFetch
+
+A common use case is fetching data. Instead of repeating the state management and effect logic in every component that needs data, we can create a \`useFetch\` hook.
+
+\`\`\`javascript
+const useFetch = (url) => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(\`HTTP error! status: \${response.status}\`);
+                const result = await response.json();
+                setData(result);
+            } catch (err) {
+                setError(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [url]);
+
+    return { data, loading, error };
+};
+\`\`\`
+
+This abstraction turns a complex, multi-line setup into a single, clean line in any component. Happy coding!
+                `,
+            },
+            // Post 2: Serverless
+            {
+                id: 2,
+                title: "Serverless Architectures: The Future of Scalability",
+                date: "September 15, 2025",
+                author: "Deepak Sharma",
+                tags: ["AWS", "Cloud", "Architecture"],
+                excerpt: "Serverless computing is rapidly changing how we think about deployment and scaling. Discover the key benefits and how to get started with AWS Lambda and Firebase Functions.",
+                content: `
+The shift to serverless architectures marks a significant evolution in cloud computing. It allows developers to focus purely on code execution, leaving the infrastructure provisioning and management to the cloud provider.
+
+## Key Advantages of Serverless
+
+* **Cost Efficiency:** Pay only for the compute time consumed.
+* **Automatic Scaling:** Scales instantly from zero to massive traffic.
+* **Reduced Maintenance:** No more operating system patches or server management.
+
+While platforms like AWS Lambda are the industry standard, tools like Firebase Functions offer seamless integration for applications built on the Google ecosystem, making development exceptionally fast.
+
+Adopting a serverless mindset means designing small, focused functions that communicate via events or APIs, leading to a much more resilient and cost-effective application.
+                `,
+            },
+            // Post 3: Prompt Engineering
+            {
+                id: 3,
+                title: "The Power of Prompt Engineering for Developers",
+                date: "August 1, 2025",
+                author: "Deepak Sharma",
+                tags: ["AI", "LLM", "Python"],
+                excerpt: "Learn how to craft effective prompts to harness the full power of Large Language Models (LLMs) like Gemini, turning them into reliable tools for application logic and data processing.",
+                content: `
+Prompt engineering is quickly becoming a core skill for modern developers. It's the art and science of communicating effectively with an LLM to achieve precise and reliable outputs. A poorly designed prompt leads to inconsistent results; a well-designed one creates a robust, AI-powered feature.
+
+## Core Prompting Techniques
+
+1.  **Provide Context:** Tell the model who it is (e.g., "Act as a senior software architect...").
+2.  **Define Constraints:** Specify the desired output format (e.g., "Respond only in JSON format with keys 'summary' and 'keywords'").
+3.  **Use Examples (Few-Shot):** Give one or two examples of the desired input/output pair.
+
+By treating the prompt as a configuration file for the AI, we can reliably integrate powerful language models into our applications, from summarizing user feedback to generating custom code snippets.
+                `,
+            }
+        ];
+
+        // --- GLOBAL ELEMENTS AND ROUTING SETUP ---
+        const contentArea = document.getElementById('content-area');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        /**
+         * Renders content into the main area with a fade transition.
+         * @param {string} htmlContent - The HTML content to inject.
+         */
+        function renderContent(htmlContent) {
+            contentArea.style.opacity = '0';
+            setTimeout(() => {
+                contentArea.innerHTML = htmlContent;
+                contentArea.style.opacity = '1';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300); // Wait for fade-out before injecting new content
+        }
+
+        /**
+         * The main routing function. Determines which content to display.
+         * @param {string} hash - The current URL hash (e.g., '#about', '#blog/1').
+         */
+        function navigate(hash) {
+            const parts = hash.substring(1).split('/');
+            const route = parts[0] || 'home'; // Default to 'home'
+            const param = parts[1];
+
+            // 1. Update Navigation Styling
+            updateNav(route);
+
+            // 2. Render Content
+            switch (route) {
+                case 'home':
+                case '':
+                    renderContent(renderHome());
+                    break;
+                case 'about':
+                    renderContent(renderAbout());
+                    break;
+                case 'projects':
+                    renderContent(renderProjects());
+                    break;
+                case 'contact':
+                    renderContent(renderContact());
+                    break;
+                case 'blog':
+                    if (param && !isNaN(parseInt(param))) {
+                        renderContent(renderBlogPostDetail(parseInt(param)));
+                    } else {
+                        renderContent(renderBlogList());
+                    }
+                    break;
+                default:
+                    renderContent(renderNotFound());
+            }
+        }
+
+        /**
+         * Updates the active state of navigation links.
+         * @param {string} currentRoute - The active route (e.g., 'about').
+         */
+        function updateNav(currentRoute) {
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                const linkRoute = link.getAttribute('href').substring(1).split('/')[0];
+                const isActive = linkRoute === currentRoute;
+
+                link.classList.remove('bg-emerald-600', 'text-white', 'font-bold');
+                link.classList.add('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+
+                if (isActive) {
+                    link.classList.add('bg-emerald-600', 'text-white', 'font-bold');
+                    link.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+                }
+            });
+        }
+
+        // --- PAGE RENDERING FUNCTIONS (HTML Templates) ---
+
+        function renderHome() {
+            return `
+                <section id="home" class="py-12 md:py-20 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 min-h-[70vh]">
+                    <div class="md:w-3/5 text-center md:text-left">
+                        <p class="text-xl text-emerald-400 mb-2">Hello, I'm</p>
+                        <h1 class="text-5xl sm:text-7xl font-extrabold leading-tight text-white mb-4">
+                            Deepak Thapliyal 
+                        </h1>
+                        <h2 class="text-2xl sm:text-3xl font-semibold text-blue-400 mb-6">
+                            Science and Technology Enthusiast
+                        </h2>
+                        <p class="text-lg text-gray-400 max-w-xl mb-8">
+                            Tech enthusiast with a strong curiosity for science, constantly exploring new ideas, tools, and innovations.
+                        </p>
+                        <div class="flex justify-center md:justify-start space-x-4">
+                            <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-emerald-600 hover:bg-emerald-700 transition duration-300 transform hover:scale-[1.02]">
+                                Get In Touch
+                            </a>
+                            <a href="#projects" class="inline-flex items-center justify-center px-6 py-3 border-2 border-emerald-600 text-base font-medium r    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
